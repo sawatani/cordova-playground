@@ -1,0 +1,33 @@
+osx_image: xcode8
+language: ruby
+rvm:
+- 2.3.3
+branches:
+  only:
+  - master
+  - develop
+  - /^feature\/\w+/
+env:
+  global:
+  - BUILD_NUM=$TRAVIS_BUILD_NUMBER
+  - PROJECT_REPO_SLUG=$TRAVIS_REPO_SLUG
+  - GIT_BRANCH=$TRAVIS_BRANCH
+  matrix:
+  - PLATFORM=web
+  - PLATFORM=android
+  - PLATFORM=ios
+before_install:
+- nvm install 6.9.2
+- brew update || brew update
+- brew install git-lfs && git-lfs install && git-lfs pull
+- sudo easy_install pip && sudo pip install awscli
+- aws s3 cp s3://${AWS_S3_BUCKET}/${PROJECT_REPO_SLUG}/persistent.tar.bz2 - | tar jxf -
+install:
+- gem install fastlane --no-document
+- (npm install || npm install) && npm install -g ionic cordova
+- test "$PLATFORM" != "ios" || pod repo update --silent
+- test "$PLATFORM" != "android" || brew install android && export ANDROID_HOME=$(brew --prefix android)
+script:
+- fastlane $PLATFORM build
+notifications:
+  email: false
