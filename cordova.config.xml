@@ -14,6 +14,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <require-sdk name="android-24" />
+        <require-sdk name="tools" />
         <require-sdk name="build-tools" />
     </platform>
     <platform name="ios">
