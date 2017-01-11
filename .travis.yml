@@ -18,6 +18,7 @@ env:
   - PLATFORM=android
   - PLATFORM=ios
 before_install:
+- rvm use system; ruby -v; type ruby
 - (mkdir ~/.ruby-build; cd ~/.ruby-build; (curl https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz | tar zxf); cd ruby-*; ./configure; sudo make install)
 - ruby -v
 - nvm install 6.9.2
