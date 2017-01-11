@@ -11,6 +11,7 @@ branches:
   - /^feature\/\w+/
 env:
   global:
+  - RUBY_URL=https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz
   - BUILD_NUM=$TRAVIS_BUILD_NUMBER
   - PROJECT_REPO_SLUG=$TRAVIS_REPO_SLUG
   - GIT_BRANCH=$TRAVIS_BRANCH
@@ -20,7 +21,7 @@ env:
   - PLATFORM=ios
 before_install:
 - rvm use system; ruby -v; type ruby
-- test -e .ruby-build || (mkdir .ruby-build; cd .ruby-build; (curl https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz | tar zxf -); cd ruby-*; ./configure)
+- test -d .ruby-build || (mkdir .ruby-build; cd .ruby-build; (curl $RUBY_URL | tar zxf -); cd ruby-*; ./configure --with-openssl)
 - (cd .ruby-build/ruby-*; sudo make install)
 - rvm use system; ruby -v; type ruby
 - nvm install 6.9.2
