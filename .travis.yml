@@ -31,7 +31,7 @@ before_install:
 install:
 - gem install fastlane --no-document
 - npm install ionic cordova && export PATH="$PATH:$(npm bin)"
-- test "$PLATFORM" != "ios" || pod repo update --silent
+- test "$PLATFORM" != "ios" || gem install cocoapods --no-document && pod repo update --silent
 - test "$PLATFORM" != "android" || brew install android && export ANDROID_HOME=$(brew --prefix android)
 script:
 - fastlane $PLATFORM build
