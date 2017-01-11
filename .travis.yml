@@ -23,7 +23,7 @@ before_install:
 - id
 - rvm use system; ruby -v; type ruby
 - test -d .ruby-build/ruby-* || (mkdir .ruby-build; cd .ruby-build; (curl $RUBY_URL | tar zxf -); cd ruby-*; ./configure --with-openssl-dir=$(brew --prefix openssl) --disable-install-doc)
-- (cd .ruby-build/ruby-*; sudo make install; sudo chmod -R g+w /usr/local/lib/ruby/gems/2.3.0)
+- (cd .ruby-build/ruby-*; make install; sudo chmod -R g+w /usr/local/lib/ruby/gems/2.3.0)
 - ls -la /usr/local/lib/ruby/gems/2.3.0
 - rvm use system; ruby -v; type ruby
 - nvm install 6.9.2
