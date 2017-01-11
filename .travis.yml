@@ -29,7 +29,7 @@ before_install:
 - brew install git-lfs && git-lfs install && git-lfs pull
 - git clone https://github.com/fathens/fastlane-ionic.git -b develop fastlane
 install:
-- gem install fastlane --no-document
+- sudo gem install fastlane --no-document
 - npm install ionic cordova && export PATH="$PATH:$(npm bin)"
 - test "$PLATFORM" != "ios" || pod repo update --silent
 - test "$PLATFORM" != "android" || brew install android && export ANDROID_HOME=$(brew --prefix android)
