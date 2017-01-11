@@ -21,7 +21,7 @@ env:
   - PLATFORM=ios
 before_install:
 - rvm use system; ruby -v; type ruby
-- test -d .ruby-build/ruby-* || (mkdir .ruby-build; cd .ruby-build; (curl $RUBY_URL | tar zxf -); cd ruby-*; ./configure --with-openssl)
+- test -d .ruby-build/ruby-* || (mkdir .ruby-build; cd .ruby-build; (curl $RUBY_URL | tar zxf -); cd ruby-*; ./configure --with-openssl-dir=$(brew --prefix openssl))
 - (cd .ruby-build/ruby-*; sudo make install)
 - rvm use system; ruby -v; type ruby
 - nvm install 6.9.2
