@@ -16,7 +16,7 @@ env:
   - PROJECT_REPO_SLUG=$TRAVIS_REPO_SLUG
   - GIT_BRANCH=$TRAVIS_BRANCH
   matrix:
-  - PLATFORM=web
+  - PLATFORM=mac
   - PLATFORM=android
   - PLATFORM=ios
 before_install:
