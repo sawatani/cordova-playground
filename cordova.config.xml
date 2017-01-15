@@ -13,7 +13,6 @@
     <allow-intent href="geo:*" />
 
     <engine name="android" spec="~6.1.0" />
-
     <platform name="android" api-version="24">
         <allow-intent href="market:*" />
     </platform>
