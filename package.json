@@ -1,9 +1,8 @@
 {
-  "name": "ionic-hello-world",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "name": "cordova-playground",
+  "version": "0.1.0",
+  "author": "f:athens",
+  "homepage": "http://fathens.org/",
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
@@ -28,17 +27,9 @@
     "zone.js": "0.6.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "latest",
+    "@ionic/app-scripts": "~1.0.0",
+    "sw-toolbox": "^3.4.0",
     "typescript": "2.0.10"
   },
-  "cordovaPlugins": [
-    "cordova-plugin-whitelist",
-    "cordova-plugin-statusbar",
-    "cordova-plugin-device",
-    "cordova-plugin-console",
-    "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
-  ],
-  "cordovaPlatforms": [],
   "description": "sample: An Ionic project"
 }

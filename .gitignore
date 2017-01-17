@@ -6,3 +6,5 @@ platforms/
 plugins/
 www/
 resources/*/
+fastlane/
+/config.xml
