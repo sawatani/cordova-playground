@@ -28,7 +28,7 @@ before_install:
 - brew update || brew update
 - npm install || npm install
 - brew install git-lfs && git-lfs install && git-lfs pull
-- git clone https://github.com/fathens/fastlane-ionic.git -b feature/official_pods_support fastlane
+- git clone https://github.com/fathens/fastlane-ionic.git -b develop fastlane
 install:
 - gem install fastlane --no-document
 - npm install ionic cordova && export PATH="$PATH:$(npm bin)"
