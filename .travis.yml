@@ -26,6 +26,7 @@ before_install:
 - rvm reset; ruby -v; type ruby
 - nvm install 6.9.2
 - brew update || brew update
+- npm install || npm install
 - brew install git-lfs && git-lfs install && git-lfs pull
 - git clone https://github.com/fathens/fastlane-ionic.git -b feature/official_pods_support fastlane
 install:
