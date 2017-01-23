@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Crashlytics } from "@cordova-plugin/fabric-crashlytics";
 
 @Component({
-    selector: 'page-crashlytics',
+    selector: 'page-fabric-crashlytics',
     templateUrl: 'crashlytics.html'
 })
 export class CrashlyticsPage {
