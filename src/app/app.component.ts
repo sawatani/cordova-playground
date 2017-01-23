@@ -28,6 +28,13 @@ export class MyApp {
 
     private async init() {
         await this.platform.ready();
+
+        this.isDevel = await LogLevel.isDevel();
+        Logger.concreateWriter = {
+            log(msg: string) {
+                Crashlytics.log(msg);
+            }
+        }
         logger.info(() => `Platform is ready.`);
         this.rootPage = HomePage;
 
@@ -41,8 +48,6 @@ export class MyApp {
         } else {
             StatusBar.styleDefault();
         }
-
-        this.isDevel = await LogLevel.isDevel();
     }
 
     crash() {
