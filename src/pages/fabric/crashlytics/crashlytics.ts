@@ -21,6 +21,7 @@ export class CrashlyticsPage {
         this.setUserIdentifier("sample_user_identifier");
         this.setUserName("sample_user_name");
         this.setUserEmail("sample@user.email");
+        this.crash("Sample Crash");
     }
 
     async log(msg: string): Promise<void> {
