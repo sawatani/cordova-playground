@@ -1,6 +1,9 @@
 import _ from "lodash";
 import { Component } from '@angular/core';
+import { Logger } from "log4ts";
 import { Answers } from "@cordova-plugin/fabric-answers";
+
+const logger = new Logger("AnswersPage");
 
 @Component({
     selector: 'page-fabric-answers',
@@ -172,6 +175,7 @@ export class EventParam {
             });
         }
         const methodName = `event${this.name}`;
+        logger.debug(`Answers.${methodName}(${JSON.stringify(args, null, 4)})`);
         return _.invoke(Answers, methodName, args);
     }
 }
