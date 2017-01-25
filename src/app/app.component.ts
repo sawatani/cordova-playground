@@ -1,22 +1,60 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import _ from "lodash";
+import { Component, ViewChild } from '@angular/core';
+import { App, Platform, Nav } from "ionic-angular";
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Logger, LogLevel } from "log4ts";
+import { Crashlytics } from '@cordova-plugin/fabric-crashlytics';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage } from "../pages/home/home";
+import { CrashlyticsPage } from "../pages/fabric/crashlytics/crashlytics";
 
+const logger = new Logger("MyApp");
 
 @Component({
-  templateUrl: 'app.html'
+    templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+    @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-    });
-  }
+    rootPage = null;
+    pages = [HomePage, CrashlyticsPage];
+    menuTitle = "もくじ";
+
+    isDevel = false;
+
+    constructor(private app: App, private platform: Platform) {
+        this.init();
+    }
+
+    private async init() {
+        await this.platform.ready();
+
+        this.isDevel = await LogLevel.isDevel();
+        Logger.concreateWriter = {
+            log(msg: string) {
+                Crashlytics.log(msg);
+            }
+        }
+        logger.info(() => `Platform is ready.`);
+        this.rootPage = HomePage;
+
+        Splashscreen.hide();
+        if (this.platform.is("android")) {
+            _.forEach(_.flatten([0, _.map(_.range(10), (i) => 100)]), (n) => {
+                setTimeout(() => {
+                    StatusBar.backgroundColorByName("black");
+                }, n);
+            });
+        } else {
+            StatusBar.styleDefault();
+        }
+    }
+
+    crash() {
+        Crashlytics.crash("Manually crashed.");
+    }
+
+    openPage(page) {
+        this.nav.setRoot(page);
+    }
 }

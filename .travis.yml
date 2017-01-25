@@ -30,8 +30,8 @@ before_install:
 - git clone https://github.com/fathens/fastlane-ionic.git -b develop fastlane
 install:
 - gem install fastlane --no-document
-- npm install || npm install
-- npm install ionic cordova && export PATH="$PATH:$(npm bin)"
+- (npm install || npm install) && (npm update || npm update) && export PATH="$PATH:$(npm bin)"
+- npm install ionic cordova
 - test "$PLATFORM" != "ios" || (gem install cocoapods --no-document && pod repo update --silent)
 - test "$PLATFORM" != "android" || (brew install android && export ANDROID_HOME=$(brew --prefix android))
 script:

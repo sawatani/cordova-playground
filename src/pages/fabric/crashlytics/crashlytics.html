@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            {{title}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="all()">
+                <ion-icon name="color-wand"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <p>log</p>
+        <ion-item>
+            <ion-input placeholder="message" [(ngModel)]="log_msg"></ion-input>
+            <button ion-button item-right (click)="log(log_msg)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>logException</p>
+        <ion-item>
+            <ion-input placeholder="message" [(ngModel)]="logException_msg"></ion-input>
+            <button ion-button item-right (click)="logException(logException_msg)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>crash</p>
+        <ion-item>
+            <ion-input placeholder="message" [(ngModel)]="crash_msg"></ion-input>
+            <button ion-button item-right (click)="crash(crash_msg)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setBool</p>
+        <ion-item>
+            <ion-input placeholder="key" [(ngModel)]="setBool_key"></ion-input>
+            <ion-input placeholder="value" [(ngModel)]="setBool_value"></ion-input>
+            <button ion-button item-right (click)="setBool(setBool_key, setBool_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setDouble</p>
+        <ion-item>
+            <ion-input placeholder="key" [(ngModel)]="setDouble_key"></ion-input>
+            <ion-input placeholder="value" [(ngModel)]="setDouble_value"></ion-input>
+            <button ion-button item-right (click)="setDouble(setDouble_key, setDouble_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setFloat</p>
+        <ion-item>
+            <ion-input placeholder="key" [(ngModel)]="setFloat_key"></ion-input>
+            <ion-input placeholder="value" [(ngModel)]="setFloat_value"></ion-input>
+            <button ion-button item-right (click)="setFloat(setFloat_key, setFloat_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setInt</p>
+        <ion-item>
+            <ion-input placeholder="key" [(ngModel)]="setInt_key"></ion-input>
+            <ion-input placeholder="value" [(ngModel)]="setInt_value"></ion-input>
+            <button ion-button item-right (click)="setInt(setInt_key, setInt_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setUserIdentifier</p>
+        <ion-item>
+            <ion-input placeholder="value" [(ngModel)]="setUserIdentifier_value"></ion-input>
+            <button ion-button item-right (click)="setUserIdentifier(setUserIdentifier_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setUserName</p>
+        <ion-item>
+            <ion-input placeholder="value" [(ngModel)]="setUserName_value"></ion-input>
+            <button ion-button item-right (click)="setUserName(setUserName_value)">GO</button>
+        </ion-item>
+    </div>
+    <div>
+        <p>setUserEmail</p>
+        <ion-item>
+            <ion-input placeholder="value" [(ngModel)]="setUserEmail_value"></ion-input>
+            <button ion-button item-right (click)="setUserEmail(setUserEmail_value)">GO</button>
+        </ion-item>
+    </div>
+</ion-content>
