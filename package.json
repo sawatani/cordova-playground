@@ -23,7 +23,7 @@
     "@cordova-plugin/fabric-answers": "github:fathens/cordova-plugin-fabric-answers",
     "@cordova-plugin/fabric-crashlytics": "github:fathens/cordova-plugin-fabric-crashlytics",
     "@ionic/storage": "1.1.7",
-    "ionic-angular": "2.0.0-rc.4",
+    "ionic-angular": "2.0.0-rc.5",
     "ionic-native": "2.2.11",
     "ionicons": "3.0.0",
     "rxjs": "5.0.0-beta.12",
