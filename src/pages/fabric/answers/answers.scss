@@ -1,3 +1,23 @@
-page-crashlytics {
+page-fabric-answers {
+    .scroll-content {
+        background: lightgray;
+    }
 
+    .event {
+        background: white;
+
+        &:not(:last-child) {
+            margin-bottom: 5em;
+        }
+
+        .flexible-box {
+            margin-top: 1em;
+
+            .flexible {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+    }
 }
