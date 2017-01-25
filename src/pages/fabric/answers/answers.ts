@@ -145,20 +145,30 @@ export class EventParam {
     public readonly flexibles: { key: string; value: string }[][];
 
     async go() {
+        function filt(src: string): string | number | boolean {
+            if (src.match(/^true$/i)) {
+                return true;
+            } else if (src.match(/^false$/i)) {
+                return false;
+            } else if (src.match(/^\d*\.?\d+$/)) {
+                return Number(src);
+            }
+            return src;
+        }
         const args: any = {};
         _.forEach(this.params, (value, key) => {
-            if (value) args[key] = value
+            if (value) args[key] = filt(value);
         });
         if (!_.isEmpty(this.customs)) {
             args.custom = {};
             this.customs.forEach((x) => {
-                args.custom[x.key] = x.value;
+                if (x.key && x.value) args.custom[x.key] = filt(x.value);
             });
         }
         if (!_.isEmpty(this.attributes)) {
             args.attributes = {};
             this.attributes.forEach((x) => {
-                args.attributes[x.key] = x.value;
+                if (x.key && x.value) args.attributes[x.key] = filt(x.value);
             });
         }
         const methodName = `event${this.name}`;
