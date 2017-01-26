@@ -50,6 +50,7 @@ export class AnswersPage {
 
         this.events.push(new EventParam("LevelEnd", {
             levelName: "sample_levelName",
+            score: "321",
             success: "true"
         }, {
             custom_sample: "sample_value"
