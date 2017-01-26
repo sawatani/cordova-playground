@@ -25,26 +25,24 @@
             <ion-input [(ngModel)]="event.params[key]"></ion-input>
         </ion-item>
 
-        <div *ngFor="let flexible of event.flexibles">
-            <div class="flexible-box" *ngIf="flexible !== null">
-                <div class="flexible" *ngFor="let kv of flexible; let i = index">
-                    <button ion-button icon-only color="danger" (click)="flexible.splice(i, 1)">
-                        <ion-icon name="remove"></ion-icon>
-                    </button>
-                    <ion-item>
-                        <ion-label floating>key</ion-label>
-                        <ion-input [(ngModel)]="kv.key"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label floating>value</ion-label>
-                        <ion-input [(ngModel)]="kv.value"></ion-input>
-                    </ion-item>
-                </div>
-                <button ion-button icon-only color="secondary" (click)="flexible.push({ key: 'newKey', value: 'newValue' })">
-                    add
-                    <ion-icon name="add"></ion-icon>
+        <div class="flexible-box">
+            <div class="flexible" *ngFor="let kv of event.attributes; let i = index">
+                <button ion-button icon-only color="danger" (click)="event.attributes.splice(i, 1)">
+                    <ion-icon name="remove"></ion-icon>
                 </button>
+                <ion-item>
+                    <ion-label floating>key</ion-label>
+                    <ion-input [(ngModel)]="kv.key"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>value</ion-label>
+                    <ion-input [(ngModel)]="kv.value"></ion-input>
+                </ion-item>
             </div>
+            <button ion-button icon-only color="secondary" (click)="event.attributes.push({ key: 'newKey', value: 'newValue' })">
+                add
+                <ion-icon name="add"></ion-icon>
+            </button>
         </div>
     </ion-list>
 </ion-content>

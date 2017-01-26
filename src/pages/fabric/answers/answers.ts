@@ -119,7 +119,7 @@ export class AnswersPage {
 
         this.events.push(new EventParam("Custom", {
             name: "sample_name"
-        }, {}, {
+        }, {
             attribute_sample: "sample_attribute"
         }));
     }
@@ -129,30 +129,20 @@ export class EventParam {
     constructor(
         public readonly name: string,
         public params: { [key: string]: string },
-        customParms: { [key: string]: string },
         attributeParams: { [key: string]: string } = {}) {
 
-        this.customs = _.isEmpty(customParms) ? null : _.map(customParms, (value, key) => {
-            return {
-                key: key,
-                value: value
-            };
-        });
         this.attributes =  _.isEmpty(attributeParams) ? null : _.map(attributeParams, (value, key) => {
             return {
                 key: key,
                 value: value
             };
         });
-        this.flexibles = [this.customs, this.attributes];
     }
 
     get paramKeys(): string[] {
         return _.keys(this.params);
     }
-    private readonly customs: { key: string; value: string }[];
-    private readonly attributes: { key: string; value: string }[];
-    public readonly flexibles: { key: string; value: string }[][];
+    readonly attributes: { key: string; value: string }[];
 
     async go() {
         function filt(src: string): string | number | boolean {
@@ -169,12 +159,6 @@ export class EventParam {
         _.forEach(this.params, (value, key) => {
             if (value) args[key] = filt(value);
         });
-        if (!_.isEmpty(this.customs)) {
-            args.custom = {};
-            this.customs.forEach((x) => {
-                if (x.key && x.value) args.custom[x.key] = filt(x.value);
-            });
-        }
         if (!_.isEmpty(this.attributes)) {
             args.attributes = {};
             this.attributes.forEach((x) => {
