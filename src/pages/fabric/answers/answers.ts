@@ -93,6 +93,12 @@ export class AnswersPage {
             custom_sample: "sample_value"
         }));
 
+        this.events.push(new EventParam("Search", {
+            query: "sample_query"
+        }, {
+            custom_sample: "sample_value"
+        }));
+
         this.events.push(new EventParam("Share", {
             method: "sample_method",
             contentName: "sample_contentName",
