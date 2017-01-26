@@ -8,6 +8,7 @@ import { Crashlytics } from '@cordova-plugin/fabric-crashlytics';
 import { HomePage } from "../pages/home/home";
 import { CrashlyticsPage } from "../pages/fabric/crashlytics/crashlytics";
 import { AnswersPage } from "../pages/fabric/answers/answers";
+import { S3Page } from "../pages/aws/s3/s3";
 
 const logger = new Logger("MyApp");
 
@@ -18,7 +19,7 @@ export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
     rootPage = null;
-    pages = [HomePage, CrashlyticsPage, AnswersPage];
+    pages = [HomePage, CrashlyticsPage, AnswersPage, S3Page];
     menuTitle = "もくじ";
 
     isDevel = false;

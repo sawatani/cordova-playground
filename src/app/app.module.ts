@@ -4,13 +4,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CrashlyticsPage } from '../pages/fabric/crashlytics/crashlytics';
 import { AnswersPage } from "../pages/fabric/answers/answers";
+import { S3Page } from "../pages/aws/s3/s3";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CrashlyticsPage,
-    AnswersPage
+    AnswersPage,
+    S3Page
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,7 +22,8 @@ import { AnswersPage } from "../pages/fabric/answers/answers";
     MyApp,
     HomePage,
     CrashlyticsPage,
-    AnswersPage
+    AnswersPage,
+    S3Page
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
