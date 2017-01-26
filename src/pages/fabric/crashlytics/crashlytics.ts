@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 import { Crashlytics } from "@cordova-plugin/fabric-crashlytics";
 
 @Component({
@@ -11,6 +12,9 @@ export class CrashlyticsPage {
 
     readonly title = CrashlyticsPage.title;
 
+    constructor(private toastCtrl: ToastController) {
+    }
+
     async all() {
         this.log("Sample of 'log'");
         this.logException("Sample 'logException'");
@@ -21,7 +25,16 @@ export class CrashlyticsPage {
         this.setUserIdentifier("sample_user_identifier");
         this.setUserName("sample_user_name");
         this.setUserEmail("sample@user.email");
-        this.crash("Sample Crash");
+
+        const toast = this.toastCtrl.create({
+            message: 'All of values are set. crashing now ...',
+            duration: 3000,
+            position: 'middle'
+        });
+        toast.onDidDismiss(() => {
+            this.crash("Sample Crash");
+        });
+        toast.present();
     }
 
     async log(msg: string): Promise<void> {
