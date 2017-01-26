@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { Component } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 import { Logger } from "log4ts";
 import { Answers } from "@cordova-plugin/fabric-answers";
 
@@ -19,9 +20,14 @@ export class AnswersPage {
     async all() {
         const promises = _.map(this.events, async (x) => x.go());
         await Promise.all(promises);
+        this.toastCtrl.create({
+            message: 'All of events are posted',
+            duration: 3000,
+            position: 'middle'
+        }).present();
     }
 
-    constructor() {
+    constructor(private toastCtrl: ToastController) {
         this.events.push(new EventParam("Login", {
             method: "sample_method",
             success: "true"
