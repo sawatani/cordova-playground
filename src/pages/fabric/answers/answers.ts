@@ -56,8 +56,8 @@ export class AnswersPage {
         }));
 
         this.events.push(new EventParam("Purchase", {
-            itemPrice: "1",
-            currency: "sample_currency",
+            itemPrice: "123",
+            currency: "JPY",
             itemName: "sample_itemName",
             itemType: "sample_itemType",
             itemId: "sample_itemId",
@@ -67,8 +67,8 @@ export class AnswersPage {
         }));
 
         this.events.push(new EventParam("AddToCart", {
-            itemPrice: "1",
-            currency: "sample_currency",
+            itemPrice: "123",
+            currency: "JPY",
             itemName: "sample_itemName",
             itemType: "sample_itemType",
             itemId: "sample_itemId"
@@ -77,8 +77,8 @@ export class AnswersPage {
         }));
 
         this.events.push(new EventParam("StartCheckout", {
-            totalPrice: "1",
-            currency: "sample_currency",
+            totalPrice: "123",
+            currency: "JPY",
             itemCount: "1"
         }, {
             custom_sample: "sample_value"
