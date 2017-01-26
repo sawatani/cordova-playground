@@ -118,7 +118,7 @@ export class AnswersPage {
             rating: "1",
             contentName: "sample_contentName",
             contentType: "sample_contentType",
-            contentId: "sample_itemType"
+            contentId: "sample_contentId"
         }, {
             custom_sample: "sample_value"
         }));
