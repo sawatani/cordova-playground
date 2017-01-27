@@ -1,8 +1,7 @@
-import _ from "lodash";
 import { Component } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { Logger } from "log4ts";
-import { S3File } from "@cordova-plugin/aws-s3";
+import { S3Client } from "@cordova-plugin/aws-s3";
 
 const logger = new Logger("S3Page");
 
@@ -16,6 +15,7 @@ export class S3Page {
 
     readonly title = S3Page.title;
 
-    constructor(private toastCtrl: ToastController) {
+    constructor(private s3: S3Client, private toastCtrl: ToastController) {
+        logger.info(`Created of s3: ${s3}`);
     }
 }

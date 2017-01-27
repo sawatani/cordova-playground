@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { S3Client } from '@cordova-plugin/aws-s3';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CrashlyticsPage } from '../pages/fabric/crashlytics/crashlytics';
@@ -25,6 +27,9 @@ import { S3Page } from "../pages/aws/s3/s3";
     AnswersPage,
     S3Page
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    S3Client,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
 })
 export class AppModule {}
